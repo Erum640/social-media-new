@@ -31,7 +31,7 @@ export default function SignUp() {
     }
 
    
-    fetch("http://localhost:5000/signup", {
+    fetch("https://social-media-backend-venv.onrender.com/signup", {
       method: "post",
       headers: {
         "Content-Type": "application/json"
