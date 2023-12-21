@@ -188,7 +188,7 @@ export default function MyFolliwngPost() {
                 />
               </div>
               <h5>
-                <Link to={`/profile/${posts.postedBy._id}`}>
+                <Link to={/profile/${posts.postedBy._id}}>
                   {posts.postedBy.name}
                 </Link>
               </h5>
