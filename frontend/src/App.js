@@ -17,7 +17,7 @@ import MyFolliwngPost from "./components/MyFollowingPost";
 //  const {io} = require("socket.io-client");
 // const socket = io('http://localhost:5000');
 const io = require("socket.io-client");
-const socket = io("http://localhost:5000", {
+const socket = io("https://social-media-backend-venv.onrender.com", {
   withCredentials: true,
   extraHeaders: {
     "my-custom-header": "abcd"
