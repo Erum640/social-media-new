@@ -10,7 +10,7 @@ const server = http.createServer(app);
 // const io = socketIo(server);
 const io = require("socket.io")(server, {
     cors: {
-      origin: "http://localhost:3000",
+      origin: "https://social-media-frontend-s1fc.onrender.com",
       methods: ["GET", "PUT"],
       allowedHeaders: ["my-custom-header"],
       credentials: true
