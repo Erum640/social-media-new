@@ -1,3 +1,5 @@
+//Home.js : 
+
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
@@ -139,18 +141,20 @@ export default function Home() {
       {/* card */}
       {data.map((posts) => {
         return (
-          <div className="card">
+          <div
+          key={posts._id}
+          className="card">
             {/* card header */}
             <div className="card-header">
               <div className="card-pic">
                 <img
-                  src={posts.postedBy.Photo ? posts.postedBy.Photo : picLink}
+                  src={posts.postedBy?.Photo || picLink}
                   alt=""
                 />
               </div>
               <h5>
-                <Link to={`/profile/${posts.postedBy._id}`}>
-                  {posts.postedBy.name}
+                <Link to={`/profile/${posts.postedBy?._id}`}>
+                  {posts.postedBy?.name}
                 </Link>
               </h5>
             </div>
