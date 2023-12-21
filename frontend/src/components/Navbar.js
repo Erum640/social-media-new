@@ -10,7 +10,7 @@ export default function Navbar({ login }) {
   const loginStatus = () => {
     const token = localStorage.getItem("jwt");
     if (login || token) {
-      return [
+      return (
         <>
           <Search/>
           <Link to="/profile">
@@ -25,19 +25,19 @@ export default function Navbar({ login }) {
               Log Out
             </button>
           </Link>
-        </>,
-      ];
+        </>
+      );
     } else {
-      return [
-        <>
-          <Link to="/signup">
-            <li>SignUp</li>
-          </Link>
-          <Link to="/signin">
-            <li>SignIn</li>
-          </Link>
-        </>,
-      ];
+      return (
+      <>
+        <Link to="/signup">
+          <li>SignUp</li>
+        </Link>
+        <Link to="/signin">
+          <li>SignIn</li>
+        </Link>
+      </>
+      );
     }
   };
 
