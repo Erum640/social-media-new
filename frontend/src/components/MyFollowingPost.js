@@ -4,8 +4,15 @@ import "./Home.css";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-import {io} from 'socket.io-client';
-const socket = io('https://social-media-backend-venv.onrender.com');
+const io = require("socket.io-client");
+const socket = io("https://social-media-backend-venv.onrender.com", {
+  withCredentials: true,
+  extraHeaders: {
+    "my-custom-header": "abcd"
+  }
+});
+// import {io} from 'socket.io-client';
+// const socket = io('https://social-media-backend-venv.onrender.com');
 
 export default function MyFolliwngPost() {
   const navigate = useNavigate();
