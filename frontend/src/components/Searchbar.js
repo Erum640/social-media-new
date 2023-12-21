@@ -8,7 +8,7 @@ function Search() {
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/search?q=${query}`);
+      const response = await fetch(`https://social-media-backend-venv.onrender.com/search?q=${query}`);
       const data = await response.json();
       setResults(data);
     } catch (error) {
