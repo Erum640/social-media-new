@@ -12,7 +12,7 @@ export default function UserProfie() {
 
  
   const followUser = (userId) => {
-    fetch("http://localhost:5000/follow", {
+    fetch("https://social-media-backend-venv.onrender.com/follow", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export default function UserProfie() {
 
  
   const unfollowUser = (userId) => {
-    fetch("http://localhost:5000/unfollow", {
+    fetch("https://social-media-backend-venv.onrender.com/unfollow", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export default function UserProfie() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/user/${userid}`, {
+    fetch(`https://social-media-backend-venv.onrender.com/user/${userid}`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
