@@ -19,7 +19,7 @@ export default function Createpost() {
    
     if (url) {
 
-      fetch("http://localhost:5000/createPost", {
+      fetch("https://social-media-backend-venv.onrender.com/createPost", {
         method: "post",
         headers: {
           "Content-Type": "application/json",
