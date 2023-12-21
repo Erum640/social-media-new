@@ -23,7 +23,7 @@ export default function ProfilePic({ changeprofile }) {
 
   const postPic = () => {
     
-    fetch("http://localhost:5000/uploadProfilePic", {
+    fetch("https://social-media-backend-venv.onrender.com/uploadProfilePic", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
