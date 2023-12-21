@@ -1,0 +1,35 @@
+/* Style for the search container */
+.input-group {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    margin: 20px;
+  }
+  
+  /* Style for the input field */
+  .form-control {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  /* Style for the search button */
+  .btn-primary {
+    margin-left:0; /* Add some spacing between the input and button */
+    padding: 10px 15px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  /* Hover effect for the search button */
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
