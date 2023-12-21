@@ -14,15 +14,18 @@ import { LoginContext } from "./context/LoginContext";
 import Modal from "./components/Modal";
 import UserProfie from "./components/UserProfile";
 import MyFolliwngPost from "./components/MyFollowingPost";
-//  const {io} = require("socket.io-client");
-// const socket = io('http://localhost:5000');
-const io = require("socket.io-client");
-const socket = io("https://social-media-backend-venv.onrender.com", {
-  withCredentials: true,
-  extraHeaders: {
-    "my-custom-header": "abcd"
-  }
-});
+
+
+
+// const {io} = require("socket.io-client");
+// // const socket = io('http://localhost:5000');
+// const io = require("socket.io-client");
+// const socket = io("https://social-media-backend-venv.onrender.com", {
+//   withCredentials: true,
+//   extraHeaders: {
+//     "my-custom-header": "abcd"
+//   }
+// });
 
 function App() {
   const [userLogin, setUserLogin] = useState(false);
