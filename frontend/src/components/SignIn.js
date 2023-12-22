@@ -10,6 +10,13 @@ export default function SignIn() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+  
+    if (token) {
+      navigate('/');
+    }
+  }, []);
 
 
   const notifyA = (msg) => toast.error(msg)
