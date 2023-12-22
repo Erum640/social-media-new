@@ -111,52 +111,23 @@ export default function MyFolliwngPost() {
         console.log(result);
       });
   };
-
-
-  // const makeComment = (text, id) => {
-  //   fetch("http://localhost:5000/comment", {
-  //     method: "put",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: "Bearer " + localStorage.getItem("jwt"),
-  //     },
-  //     body: JSON.stringify({
-  //       text: text,
-  //       postId: id,
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       const newData = data.map((posts) => {
-  //         if (posts._id == result._id) {
-  //           return result;
-  //         } else {
-  //           return posts;
-  //         }
-  //       });
-  //       setData(newData);
-  //       setComment("");
-  //       notifyB("Comment posted");
-  //       console.log(result);
-  //     });
-  // };
-
-
-  const makeComment = (text, id) => {
-    if (newComment.trim() !== '') {
-      fetch("https://social-media-backend-venv.onrender.com/comment", {
-        method: "put",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("jwt"),
-        },
-        body: JSON.stringify({
-          text: text,
-          postId: id,
-        }),
-      })
-        .then((res) => res.json())
-        .then((result) => {
+const makeComment = (text, id) => {
+    fetch("https://social-media-backend-venv.onrender.com/comment", {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("jwt"),
+      },
+      body: JSON.stringify({
+        text: text,
+        postId: id,
+      }),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if(result.error){
+          notifyA(result.error)
+        }else{
           const newData = data.map((posts) => {
             if (posts._id == result._id) {
               return result;
@@ -168,10 +139,13 @@ export default function MyFolliwngPost() {
           setComment("");
           notifyB("Comment posted");
           console.log(result);
-        });
-      setNewComment('');
-    }
+
+        }
+        
+      });
   };
+
+
 
   return (
     <div className="home">
