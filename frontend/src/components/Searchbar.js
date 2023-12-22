@@ -16,6 +16,12 @@ function Search() {
     }
   };
 
+  // new code added
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+    handleSearch();
+  };
+
   return (
     <div>
 
@@ -25,7 +31,8 @@ function Search() {
           className="form-control"
           placeholder="Search for users..."
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          // onChange={(e) => setQuery(e.target.value)}
+          onChange={handleChange}
         />
 
         <button className="btn btn-primary" type="button" onClick={handleSearch}>
@@ -42,7 +49,7 @@ function Search() {
 
             </h3>
 
-            {/* Display other user fields as needed */}
+            {}
           </div>
         ))}
       </div>
