@@ -3,7 +3,7 @@ import "./Home.css";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-
+const socket = io("https://social-media-backend-venv.onrender.com");
 
 export default function Home() {
   var picLink = "https://cdn-icons-png.flaticon.com/128/3177/3177440.png"
@@ -109,6 +109,7 @@ export default function Home() {
         });
         setData(newData);
         console.log(result);
+        socket.emit("likePost", { postId: id, likes: result.likes });
       });
   };
   const unlikePost = (id) => {
@@ -133,6 +134,7 @@ export default function Home() {
         });
         setData(newData);
         console.log(result);
+        socket.emit("likePost", { postId: id, likes: result.likes });
       });
   };
 
@@ -165,6 +167,7 @@ export default function Home() {
           setComment("");
           notifyB("Comment posted");
           console.log(result);
+          socket.emit("newComment", { postId: id, comments: result.comments });
 
         }
         
