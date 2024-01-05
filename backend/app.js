@@ -8,14 +8,20 @@ const http = require('http');
 const socketIo = require('socket.io');
 const server = http.createServer(app);
 // const io = socketIo(server);
+// const io = require("socket.io")(server, {
+//     cors: {
+//       origin: "https://social-media-frontend-s1fc.onrender.com",
+//       methods: ["GET", "PUT"],
+//       allowedHeaders: ["my-custom-header"],
+//       credentials: true
+//     }
+//   });
 const io = require("socket.io")(server, {
-    cors: {
-      origin: "https://social-media-frontend-s1fc.onrender.com",
-      methods: ["GET", "PUT"],
-      allowedHeaders: ["my-custom-header"],
-      credentials: true
-    }
-  });
+  pingTimeout: 60000,
+  cors: {
+    origin: "https://social-media-frontend-s1fc.onrender.com",
+  },
+});
 
 app.use(cors());
 
@@ -35,12 +41,20 @@ mongoose.connection.on("error", () => {
     console.log("not connected to mongodb")
 })
 
-io.on('connection', (socket) => {
-    console.log('A user connected'); 
-    socket.on('disconnect', () => {
-      console.log('User disconnected');
-    });
+io.on("connection", (socket) => {
+  console.log("Connected to socket.io");
+
+  socket.on("newComment", ({ postId, comments }) => {
+   
+    io.emit("updateComments", { postId, comments });
   });
+
+  socket.on("likePost", ({ postId, likes }) => {
+    
+    io.emit("updateLikeCount", { postId, likes });
+  });
+
+});
 
 
 
