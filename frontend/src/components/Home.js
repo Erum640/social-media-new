@@ -36,6 +36,46 @@ export default function Home() {
       })
       .catch((err) => console.log(err));
   }, []);
+  useEffect(() => {
+    socket.on("updateComments", ({ postId, comments }) => {
+     
+      const newData = data.map((post) => {
+        if (post._id === postId) {
+          return { ...post, comments }; 
+        }
+        return post;
+      });
+      setData(newData);
+
+      if (item._id === postId){
+        setItem({...item,comments});
+      }
+
+    });
+
+    
+    return () => {
+      socket.off("updateComments");
+    };
+  }, [data]);
+
+  useEffect(() => {
+    socket.on("updateLikeCount", ({ postId, likes }) => {
+      
+      const newData = data.map((post) => {
+        if (post._id === postId) {
+          return { ...post, likes }; 
+        }
+        return post;
+      });
+      setData(newData);
+    });
+
+
+    return () => {
+      socket.off("updateLikeCount");
+    };
+  }, [data]);
 
 
   const toggleComment = (posts) => {
